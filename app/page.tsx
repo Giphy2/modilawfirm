@@ -43,7 +43,7 @@ export default function Home() {
                 Get Free Consultation
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Link>
-              <Link href="/practice-areas" className="btn-secondary bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
+              <Link href="#practice-areas" className="btn-secondary bg-white/10 backdrop-blur-sm border-white/20 text-white hover:bg-white/20">
                 Our Practice Areas
               </Link>
             </div>
@@ -91,7 +91,7 @@ export default function Home() {
       </section>
 
       {/* Practice Areas Section */}
-      <section className="section-padding bg-gray-50">
+      <section id="practice-areas" className="section-padding bg-gray-50">
         <div className="container-custom">
           <AnimatedSection
             initial={{ opacity: 0, y: 30 }}
@@ -133,7 +133,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.6 }}
             className="text-center mt-12"
           >
-            <Link href="/practice-areas" className="btn-primary">
+            <Link href="#practice-areas" className="btn-primary">
               View All Practice Areas
             </Link>
           </AnimatedSection>
@@ -141,7 +141,7 @@ export default function Home() {
       </section>
 
       {/* Team Section */}
-      <section className="section-padding bg-white">
+      <section id="team" className="section-padding bg-white">
         <div className="container-custom">
           <AnimatedSection
             initial={{ opacity: 0, y: 30 }}
@@ -191,7 +191,7 @@ export default function Home() {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="text-center mt-12"
           >
-            <Link href="/team" className="btn-secondary">
+            <Link href="#team" className="btn-secondary">
               Meet Full Team
             </Link>
           </AnimatedSection>
@@ -199,7 +199,7 @@ export default function Home() {
       </section>
 
       {/* Animated Testimonials Section */}
-      <section className="section-padding bg-gray-50">
+      <section id="testimonials" className="section-padding bg-gray-50">
         <div className="container-custom">
           <TestimonialCarousel />
         </div>
@@ -224,7 +224,7 @@ export default function Home() {
               <Link href="/contact" className="bg-white text-primary-600 hover:bg-gray-100 font-semibold py-3 px-8 rounded-lg transition-colors">
                 Schedule Consultation
               </Link>
-              <Link href="/practice-areas" className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-3 px-8 rounded-lg transition-colors">
+              <Link href="#practice-areas" className="border-2 border-white text-white hover:bg-white hover:text-primary-600 font-semibold py-3 px-8 rounded-lg transition-colors">
                 Learn More
               </Link>
             </div>

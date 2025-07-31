@@ -11,12 +11,24 @@ const Header = () => {
 
   const navigation = [
     { name: 'Home', href: '/' },
-    { name: 'Practice Areas', href: '/practice-areas' },
-    { name: 'Our Team', href: '/team' },
-    { name: 'Testimonials', href: '/testimonials' },
-    { name: 'Blog', href: '/blog' },
+    { name: 'Practice Areas', href: '#practice-areas' },
+    { name: 'Our Team', href: '#team' },
+    { name: 'Testimonials', href: '#testimonials' },
     { name: 'Contact', href: '/contact' },
   ];
+
+  const handleNavClick = (href: string, e: React.MouseEvent) => {
+    if (href.startsWith('#')) {
+      e.preventDefault();
+      const element = document.querySelector(href);
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
+        setIsMenuOpen(false);
+      }
+    } else {
+      setIsMenuOpen(false);
+    }
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -77,6 +89,7 @@ const Header = () => {
               <Link
                 key={item.name}
                 href={item.href}
+                onClick={(e) => handleNavClick(item.href, e)}
                 className={`px-4 py-2 rounded-lg font-medium transition-all duration-200 ${
                   isScrolled 
                     ? 'text-secondary-700 hover:text-primary-600 hover:bg-primary-50' 
@@ -116,8 +129,8 @@ const Header = () => {
                   <Link
                     key={item.name}
                     href={item.href}
+                    onClick={(e) => handleNavClick(item.href, e)}
                     className="block text-secondary-700 hover:text-primary-600 hover:bg-primary-50 font-medium py-2 px-3 rounded-lg transition-colors"
-                    onClick={() => setIsMenuOpen(false)}
                   >
                     {item.name}
                   </Link>

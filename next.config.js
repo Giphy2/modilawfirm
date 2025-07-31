@@ -1,13 +1,10 @@
 /** @type {import('next').NextConfig} */
 const repoName = 'modilawfirm'; 
-
+const isProd = process.env.NODE_ENV === 'production';
 const nextConfig = {
   output: 'export',
-  basePath: `/${repoName}`,
-  assetPrefix: `/${repoName}/`,
-  experimental: {
-    appDir: true,
-  },
+  basePath: '',
+  assetPrefix: '',
   images: {
     unoptimized: true
   },
