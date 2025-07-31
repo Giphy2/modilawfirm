@@ -9,7 +9,7 @@ const nextConfig = {
     appDir: true,
   },
   images: {
-    domains: ['images.unsplash.com'],
+    unoptimized: true
   },
   compiler: {
     removeConsole: process.env.NODE_ENV === 'production',
