@@ -1,5 +1,10 @@
 /** @type {import('next').NextConfig} */
+const repoName = 'modilawfirm'; 
+
 const nextConfig = {
+  output: 'export',
+  basePath: `/${repoName}`,
+  assetPrefix: `/${repoName}/`,
   experimental: {
     appDir: true,
   },
@@ -11,4 +16,4 @@ const nextConfig = {
   },
 }
 
-module.exports = nextConfig 
+module.exports = nextConfig
