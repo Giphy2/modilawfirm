@@ -1,41 +1,37 @@
-name: Deploy to GitHub Pages
+name: 🚀 Deploy Next.js to GitHub Pages + ProFreeHost
 
 on:
   push:
     branches:
       - main
 
-permissions:
-  contents: write
-
 jobs:
-  deploy:
+  build-and-deploy:
     runs-on: ubuntu-latest
 
     steps:
       - name: Checkout repo
         uses: actions/checkout@v3
 
-      - name: Set up Node
+      - name: Setup Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '18'
+          node-version: 18  # or 20 if you're using a newer version
 
       - name: Install dependencies
-        run: npm ci
+        run: npm install
 
-      - name: Build and export
-        run: |
-          npm run build
-          npm run export
-          echo > out/.nojekyll
+      - name: Build & Export Next.js static site
+        run: npm run export
 
+      # ✅ Deploy to GitHub Pages
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_dir: ./out
 
+      # ✅ Deploy to ProFreeHost via FTP
       - name: FTP Deploy to ProFreeHost
         uses: SamKirkland/FTP-Deploy-Action@v4.3.4
         with:
@@ -43,5 +39,5 @@ jobs:
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           protocol: ftp
-          local-dir: ./out/  # same folder used for GitHub Pages deploy
+          local-dir: ./out/
           server-dir: /htdocs/
