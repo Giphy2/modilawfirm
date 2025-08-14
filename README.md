@@ -25,7 +25,7 @@ Core Features
       Animations: Framer Motion
       Forms: React Hook Form with Zod validation
       Icons: Lucide React
-Deployment: Vercel (recommended)
+Deployment: GitHub Pages (configured) / Vercel (alternative)
  📁 Project Structure
 
 ```
@@ -124,12 +124,43 @@ Create a `.env.local` file for environment-specific settings:
 NEXT_PUBLIC_SITE_URL=https://modiadvocates.co.ke
 NEXT_PUBLIC_GOOGLE_ANALYTICS_ID=your-ga-id
  Deployment
-1. Vercel (Recommended)
-   npm install -g vercel
-   vercel
-2. Other Platforms
-   - Build the project: `npm run build`
-   - Deploy the `out` directory
+
+## GitHub Pages Deployment (Configured)
+
+This project is configured for automatic deployment to GitHub Pages using GitHub Actions.
+
+### Setup Steps:
+1. **Enable GitHub Pages** in your repository settings:
+   - Go to Settings → Pages
+   - Source: Deploy from a branch
+   - Branch: gh-pages
+   - Folder: / (root)
+
+2. **Enable GitHub Actions** in your repository settings:
+   - Go to Settings → Actions → General
+   - Allow all actions and reusable workflows
+
+3. **Automatic Deployment**:
+   - Push to main/master branch
+   - GitHub Actions will automatically build and deploy
+   - Site will be available at: `https://[username].github.io/[repository-name]`
+
+4. **Manual Deployment**:
+   ```bash
+   npm run deploy
+   ```
+
+### Alternative Deployment Options:
+
+**Vercel (Recommended for Next.js)**:
+```bash
+npm install -g vercel
+vercel
+```
+
+**Other Platforms**:
+- Build the project: `npm run export`
+- Deploy the `out` directory
  📞 Contact Information
 developer contact 254799476032
 Modi & Company Advocates LLP
