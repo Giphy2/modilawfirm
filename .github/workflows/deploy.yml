@@ -45,7 +45,9 @@ jobs:
         uses: actions/deploy-pages@v4
         environment:
           name: github-pages
-          url: ${{ steps.deployment.outputs.page_url }}
+
+      - name: Get deployment URL
+        run: echo "GitHub Pages deployment completed. Check your repository's Pages settings for the URL."
 
       # ✅ Deploy to ProFreeHost via FTP
       - name: FTP Deploy to ProFreeHost
